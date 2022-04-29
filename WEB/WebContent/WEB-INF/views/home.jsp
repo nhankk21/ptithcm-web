@@ -96,7 +96,7 @@
                         <div class="product-item men">
                             <div class="product discount product_filter">
                                 <div class="product_image">
-                                    <img src="images/product_1.png" alt="">
+                                    <img src="https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/46f7fd2b4c77455e88d5adf900a19e7e_9366/Nizza_Hi_Parley_Shoes_White_GV7617_01_standard.jpg" alt="">
                                 </div>
                                 <div class="product_info">
                                     <h6 class="product_name"><a href="single.html">Fujifilm X100T 16 MP Digital Camera
