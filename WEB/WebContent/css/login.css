@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,300;0,400;1,700&family=Poppins:wght@100;300;400;500;700&family=Roboto:ital,wght@0,100;0,300;0,400;1,100&display=swap");
+.center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 auto;
+  padding: 32px;
+  background-color: #ccc;
+}
+
+.signup {
+  font-family: "Poppins", sans-serif;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #fff;
+  width: 100%;
+  max-width: 450px;
+  height: 100%;
+  border-radius: 1rem;
+  padding: 1rem;
+  -webkit-box-shadow: -3px 6px 12px 0px #9c9c9c;
+          box-shadow: -3px 6px 12px 0px #9c9c9c;
+}
+
+.signup__heading {
+  font-size: 2rem;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+}
+
+.signup-form__group {
+  margin-bottom: 2.2rem;
+  width: 356px;
+}
+
+.signup-form__group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.signup-form__group input {
+  padding: 1rem;
+  background-color: #f1f3f4;
+  outline: none;
+  border-radius: 0.5rem;
+  border: 2px solid transparent;
+  width: calc(100% - 30px);
+}
+
+.signup-form__input:focus {
+  border: 2px solid #accbed;
+  background-color: white;
+}
+
+.signup-form__submit {
+  width: 80%;
+  font-size: 26px;
+  color: white;
+  background-color: #000;
+  outline: none;
+  border: none;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-bottom: 3.5rem;
+}
+
+.signup-forgot {
+  color: #accbed;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.signup-link {
+  width: 80%;
+  -webkit-transform: translateY(-70%);
+          transform: translateY(-70%);
+}
+.error {
+	color: red;
+}
+/*# sourceMappingURL=form.css.map */
