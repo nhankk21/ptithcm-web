@@ -1,10 +1,5 @@
 package app.controller;
 
-import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -12,29 +7,29 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import app.context.DBContext;
 import app.dao.AccountDAO;
 
 @Controller
+@RequestMapping("/login")
 public class LogInController {
-	@RequestMapping("")
-	public String showLoginForm(){
+	@RequestMapping()
+	public String showLoginForm(HttpServletRequest request){
 		return "login";
 	}
-	
-	@RequestMapping("/home")
-	public String logIn(ModelMap model, HttpServletRequest request, HttpServletResponse httpServletResponse) throws IOException{
+	@RequestMapping(params = "btnSubmit")
+	public String checkLogin(ModelMap model, HttpServletRequest request, HttpServletResponse httpServletResponse) throws Exception{
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		model.addAttribute("msg", "");
 		AccountDAO dao = new AccountDAO();
-		if(dao.checkLogin(username, password)){
-			request.setAttribute("username", username);
-			request.setAttribute("password", password);
+		int role = dao.checkLogin(username, password);
+		if(role != -1){
+			request.getSession().setAttribute("username", username);
+			request.getSession().setAttribute("password", password);
+			request.getSession().setAttribute("role", role);
+			httpServletResponse.sendRedirect("home.htm");
 			return "home";
-		}
-		request.setAttribute("msg", "wrong!");
-		httpServletResponse.sendRedirect("");
+		} 
+		request.getSession().setAttribute("msg", "Sai thông tin đăng nhập!");
 		return "login";
 	}
 }

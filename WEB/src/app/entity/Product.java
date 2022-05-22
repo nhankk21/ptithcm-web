@@ -4,24 +4,33 @@ public class Product {
 	/**
 	 * 
 	 */
-	private String ID, name, description;
+	private int ID;
+	private String name, description;
 	private double price;
-	private String imageURL, discount, categoryID;
+	private String imageURL;
+	private int quantity;
+	public Product(int iD, String name, String description, double price, String imageURL, int quantity) {
+		this.ID = iD;
+		this.name = name;
+		this.description = description;
+		this.price = price;
+		this.imageURL = imageURL;
+		this.quantity = quantity;
+	}
+	public int getQuantity() {
+		return quantity;
+	}
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
+	}
+	
 	public Product() {
 	}
-	public Product(String ID, String name, String des, double price, String image, String discount, String cat){
-		this.discount = discount;
-		this.name = name;
-		this.price = price;
-		this.ID = ID;
-		this.description = des;
-		this.imageURL = image;
-		this.categoryID = cat;
-	}
-	public String getID() {
+	
+	public int getID() {
 		return ID;
 	}
-	public void setID(String iD) {
+	public void setID(int iD) {
 		ID = iD;
 	}
 	public String getName() {
@@ -47,18 +56,5 @@ public class Product {
 	}
 	public void setImageURL(String imageURL) {
 		this.imageURL = imageURL;
-	}
-	public String getDiscount() {
-		return discount;
-	}
-	public void setDiscount(String discount) {
-		this.discount = discount;
-	}
-	public String getCategoryID() {
-		return categoryID;
-	}
-	public void setCategoryID(String categoryID) {
-		this.categoryID = categoryID;
-	}
-		
+	}	
 }

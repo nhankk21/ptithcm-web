@@ -1,2 +1,9 @@
 eclipse.preferences.version=1
 encoding//WebContent/WEB-INF/views/login.jsp=UTF-8
+encoding//WebContent/WEB-INF/views/product_edit.jsp=UTF-8
+encoding//WebContent/WEB-INF/views/statistic.jsp=UTF-8
+encoding//src/app/controller/HomeController.java=UTF-8
+encoding//src/app/controller/LogInController.java=UTF-8
+encoding//src/app/controller/ProductController.java=UTF-8
+encoding//src/app/controller/ProfileController.java=UTF-8
+encoding//src/app/dao/ProductDAO.java=UTF-8

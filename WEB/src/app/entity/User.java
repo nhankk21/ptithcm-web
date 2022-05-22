@@ -1,11 +1,12 @@
 package app.entity;
 
 public class User {
-	private String code, lastName, firstName, phoneNum, address, idNum, dayOfBirth;
+	private int code;
+	private String lastName, firstName, phoneNum, address, idNum, dayOfBirth;
 
 	public User() {
 	}
-	public User(String code, String lastName, String firstName, String phoneNum, String address, String idNum, String dayOfBirth) {
+	public User(int code, String lastName, String firstName, String phoneNum, String address, String idNum, String dayOfBirth) {
 		this.code = code;
 		this.lastName = lastName;
 		this.firstName = firstName;
@@ -15,10 +16,10 @@ public class User {
 		this.dayOfBirth = dayOfBirth;
 	}
 
-	public String getCode() {
+	public int getCode() {
 		return code;
 	}
-	public void setCode(String code) {
+	public void setCode(int code) {
 		this.code = code;
 	}
 	public String getLastName() {

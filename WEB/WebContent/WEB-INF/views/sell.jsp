@@ -2,7 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -103,7 +102,6 @@ h1 {
 		<div class="active">
 			<div style="width: 200px;">
 
-
 				<a>
 					<form action="home.htm" method="post">
 						<button class="btn" href="home.htm" type="submit">Trang
@@ -122,6 +120,7 @@ h1 {
 					<button class="btn" type="submit" name="btnProfile"
 						href="profile.htm">${username}</button>
 				</form>
+
 			</a>
 		</div>
 
@@ -152,6 +151,8 @@ h1 {
 
 				</a></li>
 
+
+
 				<li><a>
 						<form action="statistic.htm" method="post">
 
@@ -161,9 +162,9 @@ h1 {
 				</a></li>
 
 				<li><a>
-						<form action="logout.htm" method="post">
-							<button class="btn" type="submit" href="logout.htm">
-								Đăng xuất</button>
+						<form action="login.htm" method="post">
+							<button class="btn" type="submit" href="login.htm">Đăng
+								xuất</button>
 						</form>
 				</a></li>
 
@@ -177,38 +178,98 @@ h1 {
 		<div id="content" class="p-4 p-md-5 pt-5"
 			style="overflow: auto; margin-left: 210px;">
 
-			<!-- Main content -->
-			<div class="products_iso">
-				<div class="typical-products products">
+			<div class="container">
+				<form class="needs-validation" name="frmthanhtoan" method="post"
+					action="#">
 
-					<!-- Typical Products Product -->
-					<h5 style="font-size: 30px;">Sản phẩm tiêu biểu</h5>
-					<div class="container row">
 
-						<c:forEach items="${listProduct}" var="item">
+					<div class="py-5 text-center">
 
-							<div items="" var="product" class="product col-3">
-								<div class="product-item men">
-									<div class="product discount product_filter">
-										<div class="product_image">
-											<img src='${item.imageURL}' alt="">
+						<h2>Tạo hoá đơn</h2>
+					</div>
+
+					<div class="row">
+						<div class="col-md-4 order-md-2 mb-4">
+							<h4
+								class="d-flex justify-content-between align-items-center mb-3">
+								<span class="text-muted">Giỏ hàng</span>
+							</h4>
+							<ul class="list-group mb-3">
+
+								<c:forEach items="${selectedList}" var="item">
+
+
+									<li
+										class="list-group-item d-flex justify-content-between lh-condensed">
+										<div>
+											<h6 class="my-0">${item.name}</h6>
+											<small class="text-muted">x ${item.quan}</small>
 										</div>
-										<div class="product_info">
-											<h6 class="product_name" style="font-size: 20px;">
-												${item.name}<a href="/single.html"></a>
-											</h6>
-											<div class="product_price">${item.price}VND</div>
-										</div>
+									</li>
+
+								</c:forEach>
+
+							</ul>
+
+						</div>
+						<form method="post">
+
+							<div class="col-md-4 order-md-1">
+
+
+								<div class="row">
+
+									<div class="col-md-6">
+										<h4 class="mb-3">Nhân viên: ${username}</h4>
+
+										<label >Hình thức thanh toán</label> 
+										<input
+											type="text" class="form-control" name="add_cash" value="${add_cash}">
+
+										<label >Địa chỉ</label> 
+										<input type="text"
+											class="form-control" name="add_address" value="${add_address}">
+											
+										<label>Số điện thoại</label> 
+										<input type="number" class="form-control" name="add_phone" value="${add_phone}"> 
+										<br>
+										<button class="btn btn-primary btn-sm text-white"
+											type="submit" name="btnOrder">Tạo hoá đơn</button>
+
+
 									</div>
 								</div>
 
 							</div>
+							<div class="col-md-4 order-md-1">
 
-						</c:forEach>
 
+								<div class="row">
+
+									<div class="col-md-6">
+										<h4 class="mb-3">Chọn sản phẩm</h4>
+
+
+										<select name="selectProduct" style="width: 100%">
+											<c:forEach items="${list}" var="item">
+
+												<option value="${item.ID}@${item.name}">${item.name}</option>>
+
+											</c:forEach>
+										</select> 
+										<label>Số lượng</label> 
+										<input type="number" min="0" max="999999" value="0"
+											class="form-control" name="add_quantity"> <br>
+										<button class="btn btn-primary btn-sm text-white"
+											type="submit" name="btnAddCart">Thêm sản phẩm</button>
+
+									</div>
+								</div>
+							</div>
+						</form>
 					</div>
+				</form>
 
-				</div>
 			</div>
 			<!-- End Main Content -->
 

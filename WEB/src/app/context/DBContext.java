@@ -8,8 +8,8 @@ import java.util.List;
 
 public class DBContext {
 	private final String serverName = "HOAINHAN-PC";
-	private final String dbName = "WEB";
-	private final String userID = "webadmin";
+	private final String dbName = "EcommerceWeb";
+	private final String userID = "web";
 	private final String password = "1234";
 	public Connection getConnection() throws Exception{
 		Connection connection = null;

@@ -2,7 +2,6 @@
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,6 +10,9 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="css/home_content.css">
+<link rel="stylesheet" href="styles/bootstrap4/bootstrap.min.css"
+	type="text/css">
+<link rel="stylesheet" href="css/statistic.css" type="text/css">
 <link href="plugins/font-awesome-4.7.0/css/font-awesome.min.css"
 	rel="stylesheet" type="text/css">
 <link rel="stylesheet" type="text/css"
@@ -93,6 +95,29 @@ h1 {
 .topnav .active {
 	width: 200px;
 }
+
+.bill-item {
+	position: relative;
+	margin-bottom: 10px;
+}
+
+.bill-item .bill-item__line {
+	content: '';
+	width: 100%;
+	height: 1.5px;
+	background: #000;
+	display: block;
+	bottom: 0;
+	left: 0;
+}
+
+label {
+	font-weight: 100;
+}
+
+.labels {
+	font-weight: 700;
+}
 </style>
 <title>Trang chủ</title>
 </head>
@@ -102,7 +127,6 @@ h1 {
 	<div class="topnav sticky-top" style="overflow: hidden;">
 		<div class="active">
 			<div style="width: 200px;">
-
 
 				<a>
 					<form action="home.htm" method="post">
@@ -152,6 +176,7 @@ h1 {
 
 				</a></li>
 
+
 				<li><a>
 						<form action="statistic.htm" method="post">
 
@@ -177,40 +202,53 @@ h1 {
 		<div id="content" class="p-4 p-md-5 pt-5"
 			style="overflow: auto; margin-left: 210px;">
 
-			<!-- Main content -->
-			<div class="products_iso">
-				<div class="typical-products products">
+			<div class="h-50 pt-5">
 
-					<!-- Typical Products Product -->
-					<h5 style="font-size: 30px;">Sản phẩm tiêu biểu</h5>
-					<div class="container row">
 
-						<c:forEach items="${listProduct}" var="item">
-
-							<div items="" var="product" class="product col-3">
-								<div class="product-item men">
-									<div class="product discount product_filter">
-										<div class="product_image">
-											<img src='${item.imageURL}' alt="">
-										</div>
-										<div class="product_info">
-											<h6 class="product_name" style="font-size: 20px;">
-												${item.name}<a href="/single.html"></a>
-											</h6>
-											<div class="product_price">${item.price}VND</div>
-										</div>
-									</div>
+				<div class='row'>
+					<div class="px-3  h-75 overflow-auto col-md-6">
+						<h4 class="text-center">Danh sách hoá đơn đã tạo</h4>
+						<c:forEach items="${list}" var="item">
+							<div class='bill-item'>
+								<div class="col-md-12">
+									<label class="labels">Mã hoá đơn: ${item.id}</label>
 								</div>
-
+								<div class="col-md-12 pl-3">
+									<label>Tổng tiền: ${item.totalMoney} VND</label>
+								</div>
+								<div class="col-md-12 pl-3">
+									<label>Thời gian: ${item.time}</label>
+								</div>
+								<form method="post">
+									<input type="text" style="display: none;" id="bill_id"
+										name="bill_id" value="${item.id}">
+									<button type="submit" class="btn btn-primary text-white" name="btnDetail" style="width: 100px">
+										Chi tiết
+									</button>
+								</form>
 							</div>
-
 						</c:forEach>
 
-					</div>
 
+					</div>
+					<div class="px-3  h-75 overflow-auto col-md-6" style="position: fixed; right: 0; top: 150px;">
+						<h4 class="text-center">Chi tiết hoá đơn</h4>
+						<c:forEach items="${listDetail}" var="item">
+
+							<div class="col-md-12">
+								<label class="labels">Tên: ${item.name }</label>
+							</div>
+							<div class="col-md-12 pl-3">
+								<label class="labels">Số lượng: ${item.num} VND</label>
+							</div>
+
+							<br>
+						</c:forEach>
+
+
+					</div>
 				</div>
 			</div>
-			<!-- End Main Content -->
 
 		</div>
 		<!-- End Content -->
